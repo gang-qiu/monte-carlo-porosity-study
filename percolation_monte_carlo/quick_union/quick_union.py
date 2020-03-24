@@ -1,4 +1,4 @@
-from base_union import BaseUnion
+from percolation_monte_carlo.base_union import BaseUnion
 
 class QuickUnion(BaseUnion):
 
