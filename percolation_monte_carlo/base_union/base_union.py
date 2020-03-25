@@ -8,11 +8,11 @@ class BaseUnion:
     def is_connected(self, n1, n2):
         pass
 
-    def __get_ids_for_nums(self, num1, num2):
+    def _get_ids_for_nums(self, num1, num2):
         pass
 
-    def __get_id_for_num(self, num):
+    def _get_id_for_num(self, num):
         pass
 
-    def __set_id_for_num(self, num, val):
+    def _set_id_for_num(self, num, val):
         pass
