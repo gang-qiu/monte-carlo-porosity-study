@@ -14,15 +14,20 @@ class QuickerUnion(QuickUnion):
 
         if root1 != root2:
             new_weight = weight1 + weight2
+            new_root = None
+            sub_root = None
 
             # insert the smaller tree into the larger one
             # increment the weight of the larger tree
             if weight1 >= weight2:
-                self._set_id_for_num(root2, root1)
-                self._set_weight(root1, new_weight)
+                new_root = root1
+                sub_root = root2
             else:
-                self._set_id_for_num(root1, root2)
-                self._set_weight(root2, new_weight)
+                new_root = root1
+                sub_root = root2
+
+            self._set_id_for_num(sub_root, new_root)
+            self._set_weight(new_root, new_weight)
 
     def _get_weights_for_nums(self, num1, num2):
         return (
