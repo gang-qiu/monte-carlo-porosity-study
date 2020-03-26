@@ -17,6 +17,49 @@ class GridTest(unittest.TestCase):
         self.assertListEqual(grid._grid_vector, expected_vector)
 
     def test_grid_porosity(self):
-        grid = Grid(width=4, height=4, initial_porosity=0.5)
-        self.assertAlmostEquals(grid.porosity, 0.5)
-        self.assertAlmostEquals(grid.get_porosity_by_matrix(), 0.5)
+        grid1 = Grid(width=4, height=4, porosity=0.5)
+        self.assertAlmostEqual(grid1.porosity, 0.5)
+        self.assertAlmostEqual(grid1.get_porosity_by_matrix(), 0.5)
+
+        grid2 = Grid(width=40, height=40, porosity=0.5)
+        self.assertAlmostEqual(grid2.porosity, 0.5)
+        self.assertAlmostEqual(grid2.get_porosity_by_matrix(), 0.5)
+
+    def test_grid_connection(self):
+        grid1 = Grid(width=10, height=10, porosity=0)
+        self.assertFalse(grid1.is_connected)
+
+        grid2 = Grid(width=10, height=10, porosity=1)
+        [print(row) for row in grid2._grid_matrix]
+        self.assertTrue(grid2.is_connected)
+
+    def test_is_connected(self):
+        grid_connected_1 = [
+            [0,0,1,1],
+            [1,0,1,1],
+            [1,0,0,1],
+            [0,1,0,1],
+        ]
+        grid_connected_2 = [
+            [0, 0, 0, 1],
+            [1, 0, 0, 1],
+            [1, 0, 0, 1],
+            [1, 1, 0, 1],
+        ]
+        grid_not_connected_1 = [
+            [0, 0, 0, 1],
+            [1, 0, 0, 1],
+            [1, 0, 0, 1],
+            [1, 1, 1, 0],
+        ]
+        grid_not_connected_2 = [
+            [0, 1, 1, 1],
+            [1, 1, 0, 1],
+            [1, 0, 0, 1],
+            [1, 0, 0, 0],
+        ]
+
+        self.assertTrue(Grid(grid_matrix=grid_connected_1).is_connected)
+        self.assertTrue(Grid(grid_matrix=grid_connected_2).is_connected)
+        self.assertFalse(Grid(grid_matrix=grid_not_connected_1).is_connected)
+        self.assertFalse(Grid(grid_matrix=grid_not_connected_2).is_connected)
