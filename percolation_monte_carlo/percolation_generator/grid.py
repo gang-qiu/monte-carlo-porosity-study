@@ -32,11 +32,10 @@ class Grid():
         if grid_matrix is None:
             # Set up a blank matrix based on porosity
             self.__set_grid_matrix(width=width, height=height)
-            self.__set_grid_vector()
             self.__setup_grid_to_match_porosity(porosity)
         else:
             # Set up grid based on the input matrix
-            pass
+            self.__set_grid_matrix(matrix=grid_matrix)
 
         self.__set_union_graph()
         self.__percolate()
@@ -108,6 +107,8 @@ class Grid():
             self._height = len(matrix)
             self._width  = len(matrix[0])
             self._grid_matrix = matrix
+
+        self.__set_grid_vector()
 
     def __set_grid_vector(self):
         self._grid_vector = []
