@@ -149,7 +149,7 @@ class Grid():
             return None
 
         row_index, col_index = coords_tuple
-        return row_index * self._height + col_index
+        return row_index * self._width + col_index
 
     def __get_virtual_node_index(self, entrance_node=False, exit_node=False):
         return len(self._grid_vector) + (0 if entrance_node else 1)
