@@ -155,7 +155,8 @@ class Grid():
 
     def __union_pore_to_virtual_node(self, pore_vector_index, entrance_node=False, exit_node=False):
         # union the pore at the vector index with the entrance of exit node
-        self._union_graph.union(self.__get_virtual_node_index(entrance_node, exit_node), pore_vector_index)
+        virtual_node_index = self.__get_virtual_node_index(entrance_node, exit_node)
+        self._union_graph.union(virtual_node_index, pore_vector_index)
 
     def __union_pores_to_virtual_node(self, is_entrance=False, is_exit=False):
         virtual_node = self.__get_virtual_node_index(is_entrance, is_exit)

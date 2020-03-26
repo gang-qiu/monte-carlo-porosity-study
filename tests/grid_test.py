@@ -47,16 +47,16 @@ class GridTest(unittest.TestCase):
             [1, 1, 0, 1],
         ]
         grid_not_connected_1 = [
-            [0, 0, 0, 1],
-            [1, 0, 0, 1],
-            [1, 0, 0, 1],
-            [1, 1, 1, 0],
-        ]
-        grid_not_connected_2 = [
             [0, 1, 1, 1],
             [1, 1, 0, 1],
             [1, 0, 0, 1],
             [1, 0, 0, 0],
+        ]
+        grid_not_connected_2 = [
+            [0, 0, 0, 1],
+            [1, 0, 0, 1],
+            [1, 0, 0, 1],
+            [1, 1, 1, 0],
         ]
 
         self.assertTrue(Grid(grid_matrix=grid_connected_1).is_connected)
