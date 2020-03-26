@@ -46,6 +46,18 @@ class GridTest(unittest.TestCase):
             [1, 0, 0, 1],
             [1, 1, 0, 1],
         ]
+        grid_connected_3 = [
+            [0, 0, 1, 1],
+            [1, 0, 1, 1],
+            [1, 0, 0, 1],
+            [1, 1, 0, 1],
+        ]
+        grid_connected_4 = [
+            [0, 1, 1, 1],
+            [0, 1, 1, 1],
+            [0, 0, 0, 0],
+            [1, 1, 1, 0],
+        ]
         grid_not_connected_1 = [
             [0, 1, 1, 1],
             [1, 1, 0, 1],
@@ -58,8 +70,24 @@ class GridTest(unittest.TestCase):
             [1, 0, 0, 1],
             [1, 1, 1, 0],
         ]
+        grid_not_connected_3 = [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [1, 1, 1, 1],
+        ]
+        grid_not_connected_4 = [
+            [0, 0, 1, 1],
+            [0, 0, 1, 1],
+            [0, 1, 0, 0],
+            [1, 1, 0, 0],
+        ]
 
         self.assertTrue(Grid(grid_matrix=grid_connected_1).is_connected)
         self.assertTrue(Grid(grid_matrix=grid_connected_2).is_connected)
+        self.assertTrue(Grid(grid_matrix=grid_connected_3).is_connected)
+        self.assertTrue(Grid(grid_matrix=grid_connected_4).is_connected)
         self.assertFalse(Grid(grid_matrix=grid_not_connected_1).is_connected)
         self.assertFalse(Grid(grid_matrix=grid_not_connected_2).is_connected)
+        self.assertFalse(Grid(grid_matrix=grid_not_connected_3).is_connected)
+        self.assertFalse(Grid(grid_matrix=grid_not_connected_4).is_connected)
