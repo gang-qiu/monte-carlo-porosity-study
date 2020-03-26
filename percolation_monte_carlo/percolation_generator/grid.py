@@ -74,8 +74,9 @@ class Grid():
         self.__union_pores_to_virtual_node(is_entrance=True)
         self.__union_pores_to_virtual_node(is_exit=True)
 
-        for cell_index in range(len(self._grid_vector)):
-            self.__union_pore_to_neighboring_pores(cell_index)
+        for cell_index, cell in enumerate(self._grid_vector):
+            if cell == 0:
+                self.__union_pore_to_neighboring_pores(cell_index)
 
     def __setup_grid_to_match_porosity(self, porosity):
         while self.porosity < porosity:
