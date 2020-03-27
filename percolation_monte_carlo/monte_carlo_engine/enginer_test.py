@@ -32,11 +32,22 @@ class EngineTest(unittest.TestCase):
         self._assert_value_is_between(average_percolation_rate, 0, 1)
 
     def test_get_average_percolation_rate_for_porosity_list(self):
-        porosity_list = [i/10 for i in range(0,10)]
+        porosity_list = [
+            (0.1,  1),
+            (0.2,  2),
+            (0.3,  3),
+            (0.4,  4),
+            (0.5,  7),
+            (0.55, 8),
+            (0.6,  7),
+            (0.7,  3),
+            (0.8,  2),
+            (0.9,  1),
+        ]
         percolation_rates = self.engine.get_average_percolation_rates_for_porosity_list(porosity_list)
 
         self.assertEqual(len(porosity_list), len(percolation_rates))
-        for porosity in porosity_list:
+        for porosity, _ in porosity_list:
             rate = percolation_rates[str(porosity)]
             self._assert_value_is_between(rate, 0, 1)
 

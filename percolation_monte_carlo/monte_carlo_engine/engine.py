@@ -9,18 +9,20 @@ class Engine:
         self._width = width
         self._height = height
 
-    def get_average_percolation_rates_for_porosity_list(self, porosity_list):
+    def get_average_percolation_rates_for_porosity_list(self, porosity_and_frequency_list):
         '''
-
-        :param porosity_list: a list of porosity values between 0 and 1
+        :param porosity_list: a list of tuples of (porosity, num_times to simulate)
         :return: a dict keyed by the porosity (str) and valued by the average percolation rate
         '''
-        if type(porosity_list) is not list:
+        if type(porosity_and_frequency_list) is not list:
             raise ValueError("Need to pass a list of porosity values")
 
         result = {}
-        for porosity in porosity_list:
-            result[str(porosity)] = self.get_average_percolation_rate_for_porosity(porosity)
+        for porosity, num_times in porosity_and_frequency_list:
+            result[str(porosity)] = self.get_average_percolation_rate_for_porosity(
+                porosity=porosity,
+                num_times=num_times
+            )
 
         return result
 
