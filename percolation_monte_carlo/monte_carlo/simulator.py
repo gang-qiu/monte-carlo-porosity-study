@@ -1,7 +1,7 @@
 from percolation_monte_carlo.grid import Grid
 
 
-class Engine:
+class Simulator:
     def __init__(self, width=None, height=None):
         if width is None or height is None:
             raise ValueError("width and height must be given")
