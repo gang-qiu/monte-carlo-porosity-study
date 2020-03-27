@@ -1,4 +1,4 @@
-from percolation_monte_carlo.grid import Grid
+from percolation_monte_carlo.grid.grid import Grid
 
 
 class Simulator:

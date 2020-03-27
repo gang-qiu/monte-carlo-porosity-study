@@ -1,4 +1,4 @@
-from percolation_monte_carlo.monte_carlo import Simulator
+from percolation_monte_carlo.monte_carlo.simulator import Simulator
 from pprint import pprint
 
 

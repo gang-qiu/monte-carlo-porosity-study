@@ -1,1 +1,0 @@
-from percolation_monte_carlo.monte_carlo.simulator import Simulator

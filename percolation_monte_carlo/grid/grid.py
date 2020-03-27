@@ -1,5 +1,5 @@
 import random
-from percolation_monte_carlo.union_utils import QuickestUnion
+from percolation_monte_carlo.union_utils.quickest_union.quickest_union import QuickestUnion
 
 
 class Grid():

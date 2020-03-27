@@ -1,6 +1,6 @@
 import unittest
-from percolation_monte_carlo.monte_carlo import Simulator
-from percolation_monte_carlo.grid import Grid
+from percolation_monte_carlo.monte_carlo.simulator import Simulator
+from percolation_monte_carlo.grid.grid import Grid
 
 
 class SimulatorTest(unittest.TestCase):
