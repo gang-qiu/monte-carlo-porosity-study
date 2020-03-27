@@ -1,5 +1,5 @@
 import unittest
-from percolation_monte_carlo.percolation_generator.grid import Grid
+from percolation_monte_carlo.grid import Grid
 
 class GridTest(unittest.TestCase):
     def test_matrix(self):
