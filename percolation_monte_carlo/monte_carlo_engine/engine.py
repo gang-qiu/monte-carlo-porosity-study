@@ -9,7 +9,7 @@ class Engine:
         self._width = width
         self._height = height
 
-    def get_average_percolation_rate_for_porosity_list(self, porosity_list):
+    def get_average_percolation_rates_for_porosity_list(self, porosity_list):
         '''
 
         :param porosity_list: a list of porosity values between 0 and 1

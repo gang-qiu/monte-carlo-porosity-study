@@ -5,7 +5,10 @@ from percolation_monte_carlo.grid import Grid
 
 class EngineTest(unittest.TestCase):
     def setUp(self):
-        self.engine = Engine(width=50, height=50)
+        self.engine = Engine(width=20, height=20)
+
+    def _assert_value_is_between(self, val, lower, upper):
+        self.assertTrue(lower <= val and val <= upper, f"Expected value to be between {lower} - {upper}. Got {val}")
 
     def test_simulate_one_grid(self):
         grid_not_connected = self.engine._simulate_one_grid(0.01)
@@ -26,4 +29,14 @@ class EngineTest(unittest.TestCase):
 
     def test_get_average_percolation_rate_for_porosity(self):
         average_percolation_rate = self.engine.get_average_percolation_rate_for_porosity(porosity=0.6)
-        self.assertTrue(0 <= average_percolation_rate and average_percolation_rate <= 1, f"Expected average between 0 - 1. Got {average_percolation_rate}")
+        self._assert_value_is_between(average_percolation_rate, 0, 1)
+
+    def test_get_average_percolation_rate_for_porosity_list(self):
+        porosity_list = [i/10 for i in range(0,10)]
+        percolation_rates = self.engine.get_average_percolation_rates_for_porosity_list(porosity_list)
+
+        self.assertEqual(len(porosity_list), len(percolation_rates))
+        for porosity in porosity_list:
+            rate = percolation_rates[str(porosity)]
+            self._assert_value_is_between(rate, 0, 1)
+
